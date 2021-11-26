@@ -9,7 +9,7 @@
         <p class="card-text">Email : {{ $contacts->email }}</p>
         <p class="card-text">Phone : {{ $contacts->mobile }}</p>
 
-        <a href="/contact" class="btn btn-info"><strong>Voltar</strong></a>
+        <a href="/contact" class="btn btn-info">Voltar</a>
   </div>
       
     </hr>

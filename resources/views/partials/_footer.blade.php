@@ -1,0 +1,1 @@
+<p class="text-center">Copyright Elias - All Right Reserved</p>

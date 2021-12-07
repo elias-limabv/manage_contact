@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Contacts</div>
+                    <div class="card-header" align="text-center"><strong>Contact Management Web application</strong>
+                    </div>
                     <div class="card-body">
                         <a href="{{ url('/contact/create') }}" class="btn btn-success btn-sm" title="Add New Contact">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New

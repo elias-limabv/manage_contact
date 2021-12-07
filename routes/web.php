@@ -1,8 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +12,21 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/auth',[App\Http\Controllers\UserController::class, 'auth'])->name('auth.user');
-
 Route::resource('/contact', ContactController::class);
 
-Auth::routes();
+// auth route for both
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// for user
+Route::group(['middleware' => ['auth', 'role:user']], function () {
+    Route::get('/dashboard/myprofile', 'App\Http\Controllers\DashboardController@myprofile')->name('dashboard.myprofile');
+});
+
+require __DIR__.'/auth.php';

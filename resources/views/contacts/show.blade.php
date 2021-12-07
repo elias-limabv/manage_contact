@@ -1,7 +1,7 @@
 @extends('contacts.layout')
 @section('content')
 <div class="card">
-  <div class="card-header">Contactus Page</div>
+  <div class="card-header"><strong>Contactus Page</strong></div>
   <div class="card-body">
   
         <div class="card-body">

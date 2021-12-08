@@ -17,7 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// for contacts
 Route::resource('/contact', ContactController::class);
+
+//Route::get('contact/create', [ ContactController::class, 'create' ]);
+
+//Route::post('contact/create', [ ContactController::class, 'store' ]);
+
 
 // auth route for both
 Route::group(['middleware' => ['auth']], function () {

@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-//use App\Http\Request\ContactRequest;
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
-use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -25,27 +24,21 @@ class ContactController extends Controller
  * @return \Illuminate\Contracts\Validation\Validator
  */
    
- /**   protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'min:5'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:contacts'],
-            'mobile' => ['required', 'integer', 'max:9', 'unique:contacts'],
-
-        ]);
-    }
-*/
     public function create()
     {
         return view('contacts.create');
     }
 
    
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         $input = $request->all();
-        Contact::create($input);
-        return redirect('contact')->with('flash_message', 'Contact Addedd!');  
+     //   Contact::create($input);
+        $contact = Contact::create($input);
+
+        return redirect('contact')->with('flash_message', 'Contact Addedd!');     
+
+        // return back()->with('success', 'Contact created successfully.'); 
     }
 
    
@@ -63,7 +56,7 @@ class ContactController extends Controller
     }
 
  
-    public function update(Request $request, $id)
+    public function update(ContactRequest $request, $id)
     {
         $contact = Contact::find($id);
         $input = $request->all();

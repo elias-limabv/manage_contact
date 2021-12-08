@@ -1,12 +1,11 @@
 @extends('contacts.layout')
 @section('content')
 <div class="card">
-  <div class="card-header">Contactus Page</div>
+  <div class="card-header"><h1>Laravel 8 Form Validation Contact</h1></div>
   <div class="card-body">
 
   <div class="container">
 
-        <h1>Laravel 8 Form Validation Contact</h1>
             @if(Session::has('success'))
 
             <div class="alert alert-success">

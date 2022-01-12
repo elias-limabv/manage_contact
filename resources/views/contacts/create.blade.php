@@ -1,25 +1,17 @@
 @extends('contacts.layout')
 @section('content')
 <div class="card">
-  <div class="card-header"><h1>Laravel 8 Form Validation Contact</h1></div>
+  <div class="card-header"><h1>Create New Contact</h1>
+ <a href="/contact" class="btn btn-info btn-lg d-none d-lg-inline-block mb-1 mb-md-1 ml-md-0">Voltar</a>
+  </div>
+
   <div class="card-body">
 
-  <div class="container">
-
-            @if(Session::has('success'))
+        @if ($message = Session::get('success'))
 
             <div class="alert alert-success">
-
-            {{ Session::get('success') }}
-
-            @php
-
-                Session::forget('success');
-
-            @endphp
-
+              <p>{{ $message }}</p>
             </div>
-
         @endif
       
       <form action="{{ url('contact') }}" method="POST">
@@ -47,11 +39,10 @@
           @endif
        
        </br>
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        <input type="submit" value="Save" class="btn btn-success btn-lg"></br>
     </form>
   
   </div>
-</div>
 </div>
 @stop
 

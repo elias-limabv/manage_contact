@@ -23,7 +23,7 @@ Route::resource('/contact', ContactController::class);
 //Route::get('contact/create', [ ContactController::class, 'create' ]);
 
 //Route::post('contact/create', [ ContactController::class, 'store' ]);
-
+Route::get('/search', [App\Http\Controllers\ContactController::class, 'Search' ]);
 
 // auth route for both
 Route::group(['middleware' => ['auth']], function () {

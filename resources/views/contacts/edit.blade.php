@@ -7,6 +7,7 @@
       <form action="{{ url('contact/' .$contacts->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
+        <a href="/contact" class="btn btn-info">Voltar</a><br><br>
         <input type="hidden" name="id" id="id" value="{{$contacts->id}}" id="id" />
         <label>Name</label></br>
         <input type="text" name="name" id="name" value="{{$contacts->name}}" class="form-control"></br>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 
@@ -41,6 +42,11 @@ class ContactController extends Controller
         // return back()->with('success', 'Contact created successfully.'); 
     }
 
+    public function Search(Request $request)
+    {
+        $contact = Contact::where('name','like','%'.$request->search.'%')->orWhere('email','like','%'.$request->search.'%')->orWhere('mobile','like','%'.$request->search.'%')->get();
+        return view('contacts.show', compact('contact'));
+    }
    
     public function show($id)
     {
